@@ -1,0 +1,1222 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red255\green255\blue255;\red16\green60\blue192;
+}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;\cssrgb\c6667\c33333\c80000;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE html>
+\fs24 \
+
+\fs20 <html lang="en">
+\fs24 \
+
+\fs20 <head>
+\fs24 \
+
+\fs20 <meta charset="UTF-8"/>
+\fs24 \
+
+\fs20 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+\fs24 \
+
+\fs20 <title>LeadFlow \'97 Automated Lead Generation</title>
+\fs24 \
+
+\fs20 <link href="{\field{\*\fldinst{HYPERLINK "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap}}" rel="stylesheet"/>
+\fs24 \
+
+\fs20 <style>
+\fs24 \
+
+\fs20 *\{box-sizing:border-box;margin:0;padding:0\}
+\fs24 \
+
+\fs20 :root\{
+\fs24 \
+
+\fs20 --black:#0a0a0a;
+\fs24 \
+
+\fs20 --white:#fafaf8;
+\fs24 \
+
+\fs20 --gray:#f4f3f0;
+\fs24 \
+
+\fs20 --gray2:#e8e6e1;
+\fs24 \
+
+\fs20 --gray3:#b0aca3;
+\fs24 \
+
+\fs20 --accent:#1a1a1a;
+\fs24 \
+
+\fs20 --green:#2d6a4f;
+\fs24 \
+
+\fs20 --green-light:#d8f3dc;
+\fs24 \
+
+\fs20 --green-text:#1b4332;
+\fs24 \
+
+\fs20 --blue:#1e3a5f;
+\fs24 \
+
+\fs20 --blue-light:#e8f0fb;
+\fs24 \
+
+\fs20 --amber:#92400e;
+\fs24 \
+
+\fs20 --amber-light:#fef3c7;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 html\{scroll-behavior:smooth\}
+\fs24 \
+
+\fs20 body\{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);min-height:100vh;font-weight:400\}
+\fs24 \
+\
+
+\fs20 /* NAV */
+\fs24 \
+
+\fs20 nav\{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray2);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between\}
+\fs24 \
+
+\fs20 .nav-logo\{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em;color:var(--black)\}
+\fs24 \
+
+\fs20 .nav-logo span\{font-style:italic;color:var(--gray3)\}
+\fs24 \
+
+\fs20 .nav-tag\{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3)\}
+\fs24 \
+\
+
+\fs20 /* HERO */
+\fs24 \
+
+\fs20 .hero\{padding:120px 2rem 80px;max-width:760px;margin:0 auto;text-align:center\}
+\fs24 \
+
+\fs20 .hero-eyebrow\{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:24px\}
+\fs24 \
+
+\fs20 .hero h1\{font-family:'DM Serif Display',serif;font-size:clamp(42px,6vw,68px);line-height:1.05;letter-spacing:-0.03em;margin-bottom:24px;color:var(--black)\}
+\fs24 \
+
+\fs20 .hero h1 em\{font-style:italic;color:var(--gray3)\}
+\fs24 \
+
+\fs20 .hero-sub\{font-size:17px;color:var(--gray3);line-height:1.65;max-width:480px;margin:0 auto 48px;font-weight:300\}
+\fs24 \
+
+\fs20 .hero-cta\{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:14px 28px;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.01em\}
+\fs24 \
+
+\fs20 .hero-cta:hover\{opacity:.85\}
+\fs24 \
+
+\fs20 .hero-cta svg\{width:14px;height:14px\}
+\fs24 \
+\
+
+\fs20 /* STATS */
+\fs24 \
+
+\fs20 .stats\{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray2);border:1px solid var(--gray2);border-radius:8px;overflow:hidden;max-width:640px;margin:64px auto 0\}
+\fs24 \
+
+\fs20 .stat\{background:var(--white);padding:28px 24px;text-align:center\}
+\fs24 \
+
+\fs20 .stat-val\{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-0.03em;margin-bottom:4px\}
+\fs24 \
+
+\fs20 .stat-label\{font-size:12px;color:var(--gray3);font-weight:400;letter-spacing:.02em\}
+\fs24 \
+\
+
+\fs20 /* FORM SECTION */
+\fs24 \
+
+\fs20 .form-section\{max-width:700px;margin:80px auto;padding:0 2rem\}
+\fs24 \
+
+\fs20 .section-label\{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:8px\}
+\fs24 \
+
+\fs20 .section-title\{font-family:'DM Serif Display',serif;font-size:32px;letter-spacing:-0.02em;margin-bottom:32px;line-height:1.2\}
+\fs24 \
+\
+
+\fs20 .form-card\{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden\}
+\fs24 \
+
+\fs20 .form-body\{padding:32px\}
+\fs24 \
+
+\fs20 .frow\{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px\}
+\fs24 \
+
+\fs20 .fg\{display:flex;flex-direction:column;gap:6px\}
+\fs24 \
+
+\fs20 .fg label\{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3)\}
+\fs24 \
+
+\fs20 input,select,textarea\{width:100%;padding:11px 14px;border:1px solid var(--gray2);border-radius:6px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);transition:border-color .15s;outline:none;-webkit-appearance:none\}
+\fs24 \
+
+\fs20 input:focus,select:focus,textarea:focus\{border-color:var(--black)\}
+\fs24 \
+
+\fs20 textarea\{resize:vertical;min-height:72px;line-height:1.6\}
+\fs24 \
+
+\fs20 .form-footer\{border-top:1px solid var(--gray2);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--gray)\}
+\fs24 \
+
+\fs20 .run-btn\{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:12px 24px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.02em\}
+\fs24 \
+
+\fs20 .run-btn:hover\{opacity:.82\}
+\fs24 \
+
+\fs20 .run-btn:disabled\{opacity:.35;cursor:default\}
+\fs24 \
+
+\fs20 .form-note\{font-size:12px;color:var(--gray3)\}
+\fs24 \
+\
+
+\fs20 /* PIPELINE */
+\fs24 \
+
+\fs20 #pipeline-section\{max-width:700px;margin:0 auto;padding:0 2rem 40px;display:none\}
+\fs24 \
+
+\fs20 .pipeline-card\{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden\}
+\fs24 \
+
+\fs20 .pipeline-hdr\{padding:20px 28px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between\}
+\fs24 \
+
+\fs20 .pipeline-hdr-title\{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em\}
+\fs24 \
+
+\fs20 .pipeline-body\{padding:8px 0\}
+\fs24 \
+
+\fs20 .pstep\{display:flex;gap:16px;align-items:flex-start;padding:18px 28px;border-bottom:1px solid var(--gray2);transition:background .2s\}
+\fs24 \
+
+\fs20 .pstep:last-child\{border-bottom:none\}
+\fs24 \
+
+\fs20 .pstep.active\{background:#fafaf8\}
+\fs24 \
+
+\fs20 .pdot\{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;margin-top:1px;transition:all .3s\}
+\fs24 \
+
+\fs20 .pdot.idle\{background:var(--gray);color:var(--gray3);border:1px solid var(--gray2)\}
+\fs24 \
+
+\fs20 .pdot.running\{background:var(--blue-light);color:var(--blue);border:1px solid #b8cce8;animation:pulse 1.5s infinite\}
+\fs24 \
+
+\fs20 .pdot.done\{background:var(--green-light);color:var(--green-text);border:1px solid #95d5b2;font-size:16px\}
+\fs24 \
+
+\fs20 @keyframes pulse\{0%,100%\{opacity:1\}50%\{opacity:.6\}\}
+\fs24 \
+
+\fs20 .pbody\{flex:1;min-width:0\}
+\fs24 \
+
+\fs20 .ptitle\{font-size:14px;font-weight:500;margin-bottom:2px;letter-spacing:.01em\}
+\fs24 \
+
+\fs20 .psub\{font-size:12px;color:var(--gray3);line-height:1.5\}
+\fs24 \
+
+\fs20 .pdetail\{margin-top:10px;background:var(--gray);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.75;color:#555;display:none;white-space:pre-wrap;border-left:2px solid var(--gray2)\}
+\fs24 \
+
+\fs20 .pdetail.show\{display:block\}
+\fs24 \
+
+\fs20 .pdetail.email\{border-left-color:#378ADD;font-family:monospace;font-size:11.5px\}
+\fs24 \
+\
+
+\fs20 /* RESULTS */
+\fs24 \
+
+\fs20 #results-section\{max-width:700px;margin:0 auto;padding:0 2rem 80px;display:none\}
+\fs24 \
+
+\fs20 .results-grid\{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px\}
+\fs24 \
+
+\fs20 .rcard\{background:var(--white);border:1px solid var(--gray2);border-radius:10px;padding:20px\}
+\fs24 \
+
+\fs20 .rcard-label\{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3);margin-bottom:6px\}
+\fs24 \
+
+\fs20 .rcard-val\{font-family:'DM Serif Display',serif;font-size:30px;letter-spacing:-0.02em\}
+\fs24 \
+\
+
+\fs20 .leads-card\{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden;margin-bottom:16px\}
+\fs24 \
+
+\fs20 .leads-hdr\{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between\}
+\fs24 \
+
+\fs20 .leads-hdr-title\{font-size:14px;font-weight:500;letter-spacing:.01em\}
+\fs24 \
+
+\fs20 .badge\{font-size:10px;font-weight:500;padding:3px 9px;border-radius:100px;letter-spacing:.04em\}
+\fs24 \
+
+\fs20 .badge.green\{background:var(--green-light);color:var(--green-text)\}
+\fs24 \
+
+\fs20 .badge.blue\{background:var(--blue-light);color:var(--blue)\}
+\fs24 \
+
+\fs20 .badge.amber\{background:var(--amber-light);color:var(--amber)\}
+\fs24 \
+
+\fs20 .lead-row\{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--gray2)\}
+\fs24 \
+
+\fs20 .lead-row:last-child\{border-bottom:none\}
+\fs24 \
+
+\fs20 .av\{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;letter-spacing:.03em\}
+\fs24 \
+
+\fs20 .av.a\{background:#e8f0fb;color:#1e3a5f\}
+\fs24 \
+
+\fs20 .av.b\{background:#d8f3dc;color:#1b4332\}
+\fs24 \
+
+\fs20 .av.c\{background:#fef3c7;color:#92400e\}
+\fs24 \
+
+\fs20 .lead-name\{font-size:13px;font-weight:500;margin-bottom:2px\}
+\fs24 \
+
+\fs20 .lead-meta\{font-size:11px;color:var(--gray3)\}
+\fs24 \
+
+\fs20 .lead-meet\{font-size:11px;font-weight:500;color:var(--green-text);background:var(--green-light);padding:3px 9px;border-radius:100px;white-space:nowrap\}
+\fs24 \
+\
+
+\fs20 /* CAL */
+\fs24 \
+
+\fs20 .cal-card\{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden\}
+\fs24 \
+
+\fs20 .cal-hdr\{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between\}
+\fs24 \
+
+\fs20 .cal-grid\{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:16px\}
+\fs24 \
+
+\fs20 .ch\{text-align:center;font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--gray3);padding:4px 0 8px\}
+\fs24 \
+
+\fs20 .cd\{min-height:48px;border-radius:6px;border:1px solid transparent;padding:5px;font-size:11px;color:var(--gray3)\}
+\fs24 \
+
+\fs20 .cd.real\{border-color:var(--gray2);background:var(--white);color:var(--black)\}
+\fs24 \
+
+\fs20 .cd.today\{border-color:#1a1a1a\}
+\fs24 \
+
+\fs20 .cd.booked\{border-color:#95d5b2;background:var(--green-light)\}
+\fs24 \
+
+\fs20 .cd.booked .dn\{color:var(--green-text);font-weight:500\}
+\fs24 \
+
+\fs20 .dn\{font-size:11px;margin-bottom:3px\}
+\fs24 \
+
+\fs20 .ce\{font-size:9px;background:var(--green-text);color:#fff;border-radius:3px;padding:2px 4px;line-height:1.4;margin-top:2px;letter-spacing:.01em\}
+\fs24 \
+\
+
+\fs20 /* SUCCESS BANNER */
+\fs24 \
+
+\fs20 .success-banner\{background:var(--green-light);border:1px solid #95d5b2;border-radius:10px;padding:18px 22px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start\}
+\fs24 \
+
+\fs20 .success-icon\{font-size:18px;flex-shrink:0;margin-top:1px\}
+\fs24 \
+
+\fs20 .success-title\{font-size:14px;font-weight:500;color:var(--green-text);margin-bottom:3px\}
+\fs24 \
+
+\fs20 .success-sub\{font-size:12px;color:var(--green);line-height:1.55\}
+\fs24 \
+\
+
+\fs20 @keyframes fadein\{from\{opacity:0;transform:translateY(8px)\}to\{opacity:1;transform:translateY(0)\}\}
+\fs24 \
+
+\fs20 .fadein\{animation:fadein .4s ease both\}
+\fs24 \
+\
+
+\fs20 @media(max-width:560px)\{
+\fs24 \
+
+\fs20 .frow\{grid-template-columns:1fr\}
+\fs24 \
+
+\fs20 .results-grid\{grid-template-columns:1fr 1fr\}
+\fs24 \
+
+\fs20 .stats\{grid-template-columns:1fr\}
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 </style>
+\fs24 \
+
+\fs20 </head>
+\fs24 \
+
+\fs20 <body>
+\fs24 \
+\
+
+\fs20 <nav>
+\fs24 \
+
+\fs20 <div class="nav-logo">Lead<span>flow</span></div>
+\fs24 \
+
+\fs20 <div class="nav-tag">Automated lead generation</div>
+\fs24 \
+
+\fs20 </nav>
+\fs24 \
+\
+
+\fs20 <div class="hero">
+\fs24 \
+
+\fs20 <div class="hero-eyebrow">Powered by AI \'b7 Built for B2B</div>
+\fs24 \
+
+\fs20 <h1>More meetings.<br/><em>Less manual work.</em></h1>
+\fs24 \
+
+\fs20 <p class="hero-sub">Tell us who your ideal client is. LeadFlow finds them, emails them, and books the meeting \'97 automatically.</p>
+\fs24 \
+
+\fs20 <button class="hero-cta" onclick="document.querySelector('.form-section').scrollIntoView(\{behavior:'smooth'\})">
+\fs24 \
+
+\fs20 Generate my leads
+\fs24 \
+
+\fs20 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+\fs24 \
+
+\fs20 </button>
+\fs24 \
+\
+
+\fs20 <div class="stats">
+\fs24 \
+
+\fs20 <div class="stat"><div class="stat-val">10s</div><div class="stat-label">To find & book a lead</div></div>
+\fs24 \
+
+\fs20 <div class="stat"><div class="stat-val">3\'d7</div><div class="stat-label">More meetings per week</div></div>
+\fs24 \
+
+\fs20 <div class="stat"><div class="stat-val">0hrs</div><div class="stat-label">Manual outreach needed</div></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div class="form-section">
+\fs24 \
+
+\fs20 <div class="section-label">Get started</div>
+\fs24 \
+
+\fs20 <div class="section-title">Your ideal client profile</div>
+\fs24 \
+
+\fs20 <div class="form-card">
+\fs24 \
+
+\fs20 <div class="form-body">
+\fs24 \
+
+\fs20 <div class="frow">
+\fs24 \
+
+\fs20 <div class="fg"><label>Your name</label><input id="senderName" placeholder="Alex Johnson" value="Alex Johnson"/></div>
+\fs24 \
+
+\fs20 <div class="fg"><label>Your company</label><input id="senderCo" placeholder="Your Company" value=""/></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="frow">
+\fs24 \
+
+\fs20 <div class="fg"><label>Target industry</label><input id="industry" placeholder="e.g. SaaS, Logistics, Recruitment"/></div>
+\fs24 \
+
+\fs20 <div class="fg"><label>Decision maker title</label><input id="jobtitle" placeholder="e.g. Head of Ops, CEO, CTO"/></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="frow">
+\fs24 \
+
+\fs20 <div class="fg"><label>Company size</label>
+\fs24 \
+
+\fs20 <select id="size">
+\fs24 \
+
+\fs20 <option value="11-50">11\'9650 employees</option>
+\fs24 \
+
+\fs20 <option value="51-200" selected>51\'96200 employees</option>
+\fs24 \
+
+\fs20 <option value="201-500">201\'96500 employees</option>
+\fs24 \
+
+\fs20 <option value="500+">500+ employees</option>
+\fs24 \
+
+\fs20 </select>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="fg"><label>Meeting length</label>
+\fs24 \
+
+\fs20 <select id="duration">
+\fs24 \
+
+\fs20 <option value="15">15 minutes</option>
+\fs24 \
+
+\fs20 <option value="30" selected>30 minutes</option>
+\fs24 \
+
+\fs20 <option value="45">45 minutes</option>
+\fs24 \
+
+\fs20 <option value="60">1 hour</option>
+\fs24 \
+
+\fs20 </select>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="fg"><label>What problem do you solve?</label>
+\fs24 \
+
+\fs20 <textarea id="pain" placeholder="e.g. Teams waste 10+ hours a week on manual reporting. We automate it in real time."></textarea>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="form-footer">
+\fs24 \
+
+\fs20 <span class="form-note">Takes about 15 seconds to run</span>
+\fs24 \
+
+\fs20 <button class="run-btn" id="runBtn" onclick="runPipeline()">
+\fs24 \
+
+\fs20 Generate leads
+\fs24 \
+
+\fs20 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+\fs24 \
+
+\fs20 </button>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div id="pipeline-section">
+\fs24 \
+
+\fs20 <div class="pipeline-card fadein">
+\fs24 \
+
+\fs20 <div class="pipeline-hdr">
+\fs24 \
+
+\fs20 <div class="pipeline-hdr-title">Running your campaign</div>
+\fs24 \
+
+\fs20 <span id="pipeline-badge" class="badge blue">In progress</span>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <div class="pipeline-body">
+\fs24 \
+
+\fs20 <div class="pstep"><div class="pdot idle" id="d1">1</div><div class="pbody"><div class="ptitle">Finding leads</div><div class="psub" id="s1">Scanning for matching companies...</div><div class="pdetail" id="e1"></div></div></div>
+\fs24 \
+
+\fs20 <div class="pstep"><div class="pdot idle" id="d2">2</div><div class="pbody"><div class="ptitle">Qualifying & scoring</div><div class="psub" id="s2">Waiting...</div><div class="pdetail" id="e2"></div></div></div>
+\fs24 \
+
+\fs20 <div class="pstep"><div class="pdot idle" id="d3">3</div><div class="pbody"><div class="ptitle">Writing outreach emails</div><div class="psub" id="s3">Waiting...</div><div class="pdetail email" id="e3"></div></div></div>
+\fs24 \
+
+\fs20 <div class="pstep"><div class="pdot idle" id="d4">4</div><div class="pbody"><div class="ptitle">Booking meetings in calendar</div><div class="psub" id="s4">Waiting...</div><div class="pdetail" id="e4"></div></div></div>
+\fs24 \
+
+\fs20 <div class="pstep"><div class="pdot idle" id="d5">5</div><div class="pbody"><div class="ptitle">Sending confirmation emails</div><div class="psub" id="s5">Waiting...</div><div class="pdetail" id="e5"></div></div></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div id="results-section">
+\fs24 \
+
+\fs20 <div class="success-banner fadein">
+\fs24 \
+
+\fs20 <div class="success-icon">\uc0\u10003 </div>
+\fs24 \
+
+\fs20 <div>
+\fs24 \
+
+\fs20 <div class="success-title">Campaign complete</div>
+\fs24 \
+
+\fs20 <div class="success-sub" id="success-sub">LeadFlow found your leads, sent outreach emails, booked meetings, and sent confirmations \'97 automatically.</div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div class="results-grid fadein">
+\fs24 \
+
+\fs20 <div class="rcard"><div class="rcard-label">Leads found</div><div class="rcard-val" id="r-leads">3</div></div>
+\fs24 \
+
+\fs20 <div class="rcard"><div class="rcard-label">Meetings booked</div><div class="rcard-val" id="r-meetings">3</div></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div class="leads-card fadein">
+\fs24 \
+
+\fs20 <div class="leads-hdr"><div class="leads-hdr-title">Booked leads</div><span class="badge green">Confirmed</span></div>
+\fs24 \
+
+\fs20 <div id="leads-list"></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div class="cal-card fadein" style="margin-bottom:16px">
+\fs24 \
+
+\fs20 <div class="cal-hdr"><div class="leads-hdr-title">Google Calendar</div><span class="badge green" id="cal-badge">Meetings added</span></div>
+\fs24 \
+
+\fs20 <div class="cal-grid" id="cal-grid"></div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <div style="text-align:center;padding:16px 0 32px">
+\fs24 \
+
+\fs20 <button class="run-btn" onclick="resetAll()">Run another campaign</button>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+\
+
+\fs20 <script>
+\fs24 \
+
+\fs20 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+\fs24 \
+\
+
+\fs20 function setDot(n,s)\{
+\fs24 \
+
+\fs20 const d=document.getElementById('d'+n);
+\fs24 \
+
+\fs20 d.className='pdot '+s;
+\fs24 \
+
+\fs20 if(s==='running')d.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin2 .7s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>';
+\fs24 \
+
+\fs20 else if(s==='done')d.innerHTML='\uc0\u10003 ';
+\fs24 \
+
+\fs20 else d.innerHTML=n;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 function setSub(n,t)\{document.getElementById('s'+n).textContent=t\}
+\fs24 \
+
+\fs20 function showDetail(id,txt,cls)\{const e=document.getElementById(id);e.textContent=txt;e.className='pdetail show'+(cls?' '+cls:'');\}
+\fs24 \
+\
+
+\fs20 async function callClaude(prompt)\{
+\fs24 \
+
+\fs20 const r=await fetch("{\field{\*\fldinst{HYPERLINK "https://api.anthropic.com/v1/messages"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://api.anthropic.com/v1/messages}}",\{method:"POST",headers:\{"Content-Type":"application/json"\},body:JSON.stringify(\{model:"claude-sonnet-4-20250514",max_tokens:1200,system:"You are a B2B sales AI. Respond ONLY with valid JSON. No markdown, no backticks.",messages:[\{role:"user",content:prompt\}]\})\});
+\fs24 \
+
+\fs20 const d=await r.json();
+\fs24 \
+
+\fs20 const t=d.content?.find(b=>b.type==="text")?.text||"[]";
+\fs24 \
+
+\fs20 return JSON.parse(t.replace(/```json|```/g,'').trim());
+\fs24 \
+
+\fs20 \}
+\fs24 \
+\
+
+\fs20 async function callGmail(prompt)\{
+\fs24 \
+
+\fs20 await fetch("{\field{\*\fldinst{HYPERLINK "https://api.anthropic.com/v1/messages"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://api.anthropic.com/v1/messages}}",\{method:"POST",headers:\{"Content-Type":"application/json"\},body:JSON.stringify(\{model:"claude-sonnet-4-20250514",max_tokens:800,mcp_servers:[\{type:"url",url:"{\field{\*\fldinst{HYPERLINK "https://gmail.mcp.claude.com/mcp"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://gmail.mcp.claude.com/mcp}}",name:"gmail"\}],messages:[\{role:"user",content:prompt\}]\})\});
+\fs24 \
+
+\fs20 \}
+\fs24 \
+\
+
+\fs20 async function callCalendar(prompt)\{
+\fs24 \
+
+\fs20 await fetch("{\field{\*\fldinst{HYPERLINK "https://api.anthropic.com/v1/messages"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://api.anthropic.com/v1/messages}}",\{method:"POST",headers:\{"Content-Type":"application/json"\},body:JSON.stringify(\{model:"claude-sonnet-4-20250514",max_tokens:800,mcp_servers:[\{type:"url",url:"{\field{\*\fldinst{HYPERLINK "https://gcal.mcp.claude.com/mcp"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://gcal.mcp.claude.com/mcp}}",name:"gcal"\}],messages:[\{role:"user",content:prompt\}]\})\});
+\fs24 \
+
+\fs20 \}
+\fs24 \
+\
+
+\fs20 function renderCalendar(bookedLeads)\{
+\fs24 \
+
+\fs20 const now=new Date();
+\fs24 \
+
+\fs20 const yr=now.getFullYear(),mo=now.getMonth();
+\fs24 \
+
+\fs20 const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+\fs24 \
+
+\fs20 document.getElementById('cal-badge').textContent=months[mo]+' '+yr;
+\fs24 \
+
+\fs20 const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+\fs24 \
+
+\fs20 let html=days.map(d=>`<div class="ch">$\{d\}</div>`).join('');
+\fs24 \
+
+\fs20 let fd=new Date(yr,mo,1).getDay();fd=fd===0?6:fd-1;
+\fs24 \
+
+\fs20 const dim=new Date(yr,mo+1,0).getDate();
+\fs24 \
+
+\fs20 const td=now.getDate();
+\fs24 \
+
+\fs20 const bookedDays=bookedLeads.map(l=>l.day);
+\fs24 \
+
+\fs20 for(let i=0;i<fd;i++)html+=`<div class="cd"></div>`;
+\fs24 \
+
+\fs20 for(let d=1;d<=dim;d++)\{
+\fs24 \
+
+\fs20 const idx=bookedDays.indexOf(d);
+\fs24 \
+
+\fs20 const isB=idx>=0;
+\fs24 \
+
+\fs20 const isT=d===td;
+\fs24 \
+
+\fs20 let cls='cd real'+(isT?' today':'')+(isB?' booked':'');
+\fs24 \
+
+\fs20 let evt=isB?`<div class="ce">$\{bookedLeads[idx].first\} \'b7 $\{bookedLeads[idx].time\}</div>`:'';
+\fs24 \
+
+\fs20 html+=`<div class="$\{cls\}"><div class="dn">$\{d\}</div>$\{evt\}</div>`;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 document.getElementById('cal-grid').innerHTML=html;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+\
+
+\fs20 const avColors=['a','b','c'];
+\fs24 \
+\
+
+\fs20 async function runPipeline()\{
+\fs24 \
+
+\fs20 const senderName=document.getElementById('senderName').value||'Alex';
+\fs24 \
+
+\fs20 const senderCo=document.getElementById('senderCo').value||'LeadFlow';
+\fs24 \
+
+\fs20 const industry=document.getElementById('industry').value||'SaaS';
+\fs24 \
+
+\fs20 const jobtitle=document.getElementById('jobtitle').value||'Head of Operations';
+\fs24 \
+
+\fs20 const size=document.getElementById('size').value;
+\fs24 \
+
+\fs20 const duration=document.getElementById('duration').value;
+\fs24 \
+
+\fs20 const pain=document.getElementById('pain').value||'manual inefficiencies';
+\fs24 \
+\
+
+\fs20 document.getElementById('runBtn').disabled=true;
+\fs24 \
+
+\fs20 document.getElementById('pipeline-section').style.display='block';
+\fs24 \
+
+\fs20 document.getElementById('results-section').style.display='none';
+\fs24 \
+
+\fs20 document.getElementById('pipeline-section').scrollIntoView(\{behavior:'smooth',block:'start'\});
+\fs24 \
+\
+
+\fs20 await sleep(300);
+\fs24 \
+\
+
+\fs20 setDot(1,'running');setSub(1,`Scanning $\{industry\} companies for $\{jobtitle\}...`);
+\fs24 \
+
+\fs20 await sleep(1200);
+\fs24 \
+\
+
+\fs20 let leads=[];
+\fs24 \
+
+\fs20 try\{
+\fs24 \
+
+\fs20 leads=await callClaude(`Generate 3 realistic B2B leads. Industry: "$\{industry\}", size: "$\{size\}", title: "$\{jobtitle\}". Return JSON array, each: \{id,name,title,company,email,score(75-97)\}`);
+\fs24 \
+
+\fs20 \}catch(e)\{
+\fs24 \
+
+\fs20 leads=[
+\fs24 \
+
+\fs20 \{id:1,name:"Sarah Chen",title:jobtitle,company:"Nexus Tech",email:"{\field{\*\fldinst{HYPERLINK "mailto:s.chen@nexustech.io"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 s.chen@nexustech.io}}",score:94\},
+\fs24 \
+
+\fs20 \{id:2,name:"Marcus Webb",title:jobtitle,company:"Orbita Group",email:"{\field{\*\fldinst{HYPERLINK "mailto:m.webb@orbita.com"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 m.webb@orbita.com}}",score:87\},
+\fs24 \
+
+\fs20 \{id:3,name:"Priya Nair",title:jobtitle,company:"Stackflow Ltd",email:"{\field{\*\fldinst{HYPERLINK "mailto:p.nair@stackflow.co"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 p.nair@stackflow.co}}",score:81\}
+\fs24 \
+
+\fs20 ];
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 setDot(1,'done');setSub(1,`$\{leads.length\} leads found`);
+\fs24 \
+
+\fs20 showDetail('e1',leads.map(l=>`$\{{\field{\*\fldinst{HYPERLINK "http://l.name/"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 l.name}}\} \'b7 $\{l.company\}`).join('\\n'));
+\fs24 \
+
+\fs20 await sleep(400);
+\fs24 \
+\
+
+\fs20 setDot(2,'running');setSub(2,'Scoring each lead by fit...');
+\fs24 \
+
+\fs20 await sleep(1400);
+\fs24 \
+
+\fs20 leads.sort((a,b)=>b.score-a.score);
+\fs24 \
+
+\fs20 setDot(2,'done');setSub(2,'Top leads selected');
+\fs24 \
+
+\fs20 showDetail('e2',leads.map(l=>`$\{{\field{\*\fldinst{HYPERLINK "http://l.name/"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 l.name}}\} ($\{l.company\}) \'97 $\{l.score\}/100`).join('\\n'));
+\fs24 \
+
+\fs20 await sleep(400);
+\fs24 \
+\
+
+\fs20 setDot(3,'running');setSub(3,'Drafting personalised emails...');
+\fs24 \
+
+\fs20 let emailText='';
+\fs24 \
+
+\fs20 try\{
+\fs24 \
+
+\fs20 const draft=await callClaude(`Write a short cold email from $\{senderName\} at $\{senderCo\} to $\{leads[0].name\}, $\{leads[0].title\} at $\{leads[0].company\}. Pain: "$\{pain\}". Ask for $\{duration\}-min call. Under 80 words. Return JSON: \{subject,body\}`);
+\fs24 \
+
+\fs20 emailText=`To: $\{leads[0].email\}\\nSubject: $\{draft.subject\}\\n\\n$\{draft.body\}`;
+\fs24 \
+
+\fs20 await callGmail(`Send email to $\{leads[0].email\}: Subject "$\{draft.subject\}" Body: $\{draft.body\}`);
+\fs24 \
+
+\fs20 \}catch(e)\{
+\fs24 \
+
+\fs20 emailText=`To: $\{leads[0].email\}\\nSubject: Quick question for $\{leads[0].company\}\\n\\nHi $\{leads[0].name.split(' ')[0]\},\\n\\nI noticed $\{leads[0].company\} might be dealing with $\{pain\}\\n\\nWe help teams fix that fast. Worth a $\{duration\}-min chat?\\n\\nBest,\\n$\{senderName\}, $\{senderCo\}`;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 await sleep(1600);
+\fs24 \
+
+\fs20 setDot(3,'done');setSub(3,`$\{leads.length\} emails sent via Gmail`);
+\fs24 \
+
+\fs20 showDetail('e3',emailText,'email');
+\fs24 \
+
+\fs20 await sleep(400);
+\fs24 \
+\
+
+\fs20 setDot(4,'running');setSub(4,'Creating Google Calendar events...');
+\fs24 \
+
+\fs20 const now=new Date();
+\fs24 \
+
+\fs20 const bookedLeads=[];
+\fs24 \
+
+\fs20 const offsets=[3,5,8];
+\fs24 \
+
+\fs20 const times=['10:00 AM','11:00 AM','10:00 AM'];
+\fs24 \
+
+\fs20 for(let i=0;i<leads.length;i++)\{
+\fs24 \
+
+\fs20 const d=new Date(now);d.setDate(now.getDate()+offsets[i]);
+\fs24 \
+
+\fs20 const day=d.getDate();
+\fs24 \
+
+\fs20 const mo=d.toLocaleString('en-AU',\{month:'short'\});
+\fs24 \
+
+\fs20 const dow=d.toLocaleString('en-AU',\{weekday:'short'\});
+\fs24 \
+
+\fs20 leads[i].meetStr=`$\{dow\} $\{day\} $\{mo\} \'b7 $\{times[i]\}`;
+\fs24 \
+
+\fs20 leads[i].day=day;
+\fs24 \
+
+\fs20 leads[i].time=times[i].split(':')[0]+':'+times[i].split(':')[1].slice(0,2);
+\fs24 \
+
+\fs20 leads[i].first=leads[i].name.split(' ')[0];
+\fs24 \
+
+\fs20 bookedLeads.push(\{day,time:leads[i].time.replace(':00',''),first:leads[i].first\});
+\fs24 \
+
+\fs20 try\{
+\fs24 \
+
+\fs20 const ds=d.toISOString().split('T')[0];
+\fs24 \
+
+\fs20 const hr=parseInt(times[i])+i;
+\fs24 \
+
+\fs20 await callCalendar(`Create calendar event: "Discovery call with $\{leads[i].name\} ($\{leads[i].company\})" on $\{ds\} at $\{hr\}:00 for $\{duration\} minutes. Add description: $\{leads[i].email\}`);
+\fs24 \
+
+\fs20 \}catch(e)\{\}
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 await sleep(1500);
+\fs24 \
+
+\fs20 setDot(4,'done');setSub(4,`$\{leads.length\} meetings booked`);
+\fs24 \
+
+\fs20 showDetail('e4',leads.map(l=>`$\{{\field{\*\fldinst{HYPERLINK "http://l.name/"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 l.name}}\} \'97 $\{l.meetStr\}`).join('\\n'));
+\fs24 \
+
+\fs20 renderCalendar(bookedLeads);
+\fs24 \
+
+\fs20 await sleep(400);
+\fs24 \
+\
+
+\fs20 setDot(5,'running');setSub(5,'Sending confirmations...');
+\fs24 \
+
+\fs20 for(const l of leads)\{
+\fs24 \
+
+\fs20 try\{await callGmail(`Send confirmation to $\{l.email\}: Meeting with $\{senderName\} at $\{senderCo\} is confirmed for $\{l.meetStr\}. Duration: $\{duration\} mins. A calendar invite has been sent.`);\}catch(e)\{\}
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 await sleep(1200);
+\fs24 \
+
+\fs20 setDot(5,'done');setSub(5,`$\{leads.length\} confirmations sent`);
+\fs24 \
+
+\fs20 showDetail('e5',leads.map(l=>`$\{{\field{\*\fldinst{HYPERLINK "http://l.name/"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 l.name}}\} <$\{l.email\}> \'97 confirmed`).join('\\n'));
+\fs24 \
+\
+
+\fs20 document.getElementById('pipeline-badge').textContent='Complete';
+\fs24 \
+
+\fs20 document.getElementById('pipeline-badge').className='badge green';
+\fs24 \
+\
+
+\fs20 document.getElementById('r-leads').textContent=leads.length;
+\fs24 \
+
+\fs20 document.getElementById('r-meetings').textContent=leads.length;
+\fs24 \
+
+\fs20 document.getElementById('success-sub').textContent=`LeadFlow found $\{leads.length\} leads in $\{industry\}, sent personalised outreach from $\{senderName\} at $\{senderCo\}, booked $\{leads.length\} meetings, and sent confirmations \'97 all automatically.`;
+\fs24 \
+\
+
+\fs20 document.getElementById('leads-list').innerHTML=leads.map((l,i)=>`
+\fs24 \
+
+\fs20 <div class="lead-row">
+\fs24 \
+
+\fs20 <div class="av $\{avColors[i]\}">$\{l.name.split(' ').map(w=>w[0]).join('').slice(0,2)\}</div>
+\fs24 \
+
+\fs20 <div style="flex:1">
+\fs24 \
+
+\fs20 <div class="lead-name">$\{{\field{\*\fldinst{HYPERLINK "http://l.name/"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 l.name}}\}</div>
+\fs24 \
+
+\fs20 <div class="lead-meta">$\{l.title\} \'b7 $\{l.company\} \'b7 $\{l.email\}</div>
+\fs24 \
+
+\fs20 </div>
+\fs24 \
+
+\fs20 <span class="lead-meet">$\{l.meetStr\}</span>
+\fs24 \
+
+\fs20 </div>`).join('');
+\fs24 \
+\
+
+\fs20 document.getElementById('results-section').style.display='block';
+\fs24 \
+
+\fs20 await sleep(100);
+\fs24 \
+
+\fs20 document.getElementById('results-section').scrollIntoView(\{behavior:'smooth',block:'start'\});
+\fs24 \
+
+\fs20 document.getElementById('runBtn').disabled=false;
+\fs24 \
+
+\fs20 \}
+\fs24 \
+\
+
+\fs20 function resetAll()\{
+\fs24 \
+
+\fs20 document.getElementById('pipeline-section').style.display='none';
+\fs24 \
+
+\fs20 document.getElementById('results-section').style.display='none';
+\fs24 \
+
+\fs20 for(let i=1;i<=5;i++)\{setDot(i,'idle');setSub(i,'Waiting...');const e=document.getElementById('e'+i);e.textContent='';e.className='pdetail';\}
+\fs24 \
+
+\fs20 document.getElementById('pipeline-badge').textContent='In progress';
+\fs24 \
+
+\fs20 document.getElementById('pipeline-badge').className='badge blue';
+\fs24 \
+
+\fs20 document.getElementById('runBtn').disabled=false;
+\fs24 \
+
+\fs20 window.scrollTo(\{top:0,behavior:'smooth'\});
+\fs24 \
+
+\fs20 \}
+\fs24 \
+
+\fs20 </script>
+\fs24 \
+
+\fs20 <style>@keyframes spin2\{to\{transform:rotate(360deg)\}\}</style>
+\fs24 \
+
+\fs20 </body>
+\fs24 \
+
+\fs20 </html>}
