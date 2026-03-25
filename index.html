@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LeadFlow — Automated Lead Generation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--black:#0a0a0a;
+--white:#fafaf8;
+--gray:#f4f3f0;
+--gray2:#e8e6e1;
+--gray3:#b0aca3;
+--accent:#1a1a1a;
+--green:#2d6a4f;
+--green-light:#d8f3dc;
+--green-text:#1b4332;
+--blue:#1e3a5f;
+--blue-light:#e8f0fb;
+--amber:#92400e;
+--amber-light:#fef3c7;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);min-height:100vh;font-weight:400}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray2);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em;color:var(--black)}
+.nav-logo span{font-style:italic;color:var(--gray3)}
+.nav-tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3)}
+
+/* HERO */
+.hero{padding:120px 2rem 80px;max-width:760px;margin:0 auto;text-align:center}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:24px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,6vw,68px);line-height:1.05;letter-spacing:-0.03em;margin-bottom:24px;color:var(--black)}
+.hero h1 em{font-style:italic;color:var(--gray3)}
+.hero-sub{font-size:17px;color:var(--gray3);line-height:1.65;max-width:480px;margin:0 auto 48px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:14px 28px;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.01em}
+.hero-cta:hover{opacity:.85}
+.hero-cta svg{width:14px;height:14px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray2);border:1px solid var(--gray2);border-radius:8px;overflow:hidden;max-width:640px;margin:64px auto 0}
+.stat{background:var(--white);padding:28px 24px;text-align:center}
+.stat-val{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-0.03em;margin-bottom:4px}
+.stat-label{font-size:12px;color:var(--gray3);font-weight:400;letter-spacing:.02em}
+
+/* FORM SECTION */
+.form-section{max-width:700px;margin:80px auto;padding:0 2rem}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:8px}
+.section-title{font-family:'DM Serif Display',serif;font-size:32px;letter-spacing:-0.02em;margin-bottom:32px;line-height:1.2}
+
+.form-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.form-body{padding:32px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3)}
+input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--gray2);border-radius:6px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);transition:border-color .15s;outline:none;-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--black)}
+textarea{resize:vertical;min-height:72px;line-height:1.6}
+.form-footer{border-top:1px solid var(--gray2);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--gray)}
+.run-btn{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:12px 24px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.02em}
+.run-btn:hover{opacity:.82}
+.run-btn:disabled{opacity:.35;cursor:default}
+.form-note{font-size:12px;color:var(--gray3)}
+
+/* PIPELINE */
+#pipeline-section{max-width:700px;margin:0 auto;padding:0 2rem 40px;display:none}
+.pipeline-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.pipeline-hdr{padding:20px 28px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.pipeline-hdr-title{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em}
+.pipeline-body{padding:8px 0}
+.pstep{display:flex;gap:16px;align-items:flex-start;padding:18px 28px;border-bottom:1px solid var(--gray2);transition:background .2s}
+.pstep:last-child{border-bottom:none}
+.pstep.active{background:#fafaf8}
+.pdot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;margin-top:1px;transition:all .3s}
+.pdot.idle{background:var(--gray);color:var(--gray3);border:1px solid var(--gray2)}
+.pdot.running{background:var(--blue-light);color:var(--blue);border:1px solid #b8cce8;animation:pulse 1.5s infinite}
+.pdot.done{background:var(--green-light);color:var(--green-text);border:1px solid #95d5b2;font-size:16px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.pbody{flex:1;min-width:0}
+.ptitle{font-size:14px;font-weight:500;margin-bottom:2px;letter-spacing:.01em}
+.psub{font-size:12px;color:var(--gray3);line-height:1.5}
+.pdetail{margin-top:10px;background:var(--gray);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.75;color:#555;display:none;white-space:pre-wrap;border-left:2px solid var(--gray2)}
+.pdetail.show{display:block}
+.pdetail.email{border-left-color:#378ADD;font-family:monospace;font-size:11.5px}
+
+/* RESULTS */
+#results-section{max-width:700px;margin:0 auto;padding:0 2rem 80px;display:none}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.rcard{background:var(--white);border:1px solid var(--gray2);border-radius:10px;padding:20px}
+.rcard-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3);margin-bottom:6px}
+.rcard-val{font-family:'DM Serif Display',serif;font-size:30px;letter-spacing:-0.02em}
+
+.leads-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.leads-hdr{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.leads-hdr-title{font-size:14px;font-weight:500;letter-spacing:.01em}
+.badge{font-size:10px;font-weight:500;padding:3px 9px;border-radius:100px;letter-spacing:.04em}
+.badge.green{background:var(--green-light);color:var(--green-text)}
+.badge.blue{background:var(--blue-light);color:var(--blue)}
+.badge.amber{background:var(--amber-light);color:var(--amber)}
+.lead-row{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--gray2)}
+.lead-row:last-child{border-bottom:none}
+.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;letter-spacing:.03em}
+.av.a{background:#e8f0fb;color:#1e3a5f}
+.av.b{background:#d8f3dc;color:#1b4332}
+.av.c{background:#fef3c7;color:#92400e}
+.lead-name{font-size:13px;font-weight:500;margin-bottom:2px}
+.lead-meta{font-size:11px;color:var(--gray3)}
+.lead-meet{font-size:11px;font-weight:500;color:var(--green-text);background:var(--green-light);padding:3px 9px;border-radius:100px;white-space:nowrap}
+
+/* CAL */
+.cal-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.cal-hdr{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:16px}
+.ch{text-align:center;font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--gray3);padding:4px 0 8px}
+.cd{min-height:48px;border-radius:6px;border:1px solid transparent;padding:5px;font-size:11px;color:var(--gray3)}
+.cd.real{border-color:var(--gray2);background:var(--white);color:var(--black)}
+.cd.today{border-color:#1a1a1a}
+.cd.booked{border-color:#95d5b2;background:var(--green-light)}
+.cd.booked .dn{color:var(--green-text);font-weight:500}
+.dn{font-size:11px;margin-bottom:3px}
+.ce{font-size:9px;background:var(--green-text);color:#fff;border-radius:3px;padding:2px 4px;line-height:1.4;margin-top:2px;letter-spacing:.01em}
+
+/* SUCCESS BANNER */
+.success-banner{background:var(--green-light);border:1px solid #95d5b2;border-radius:10px;padding:18px 22px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start}
+.success-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.success-title{font-size:14px;font-weight:500;color:var(--green-text);margin-bottom:3px}
+.success-sub{font-size:12px;color:var(--green);line-height:1.55}
+
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fadein{animation:fadein .4s ease both}
+
+@media(max-width:560px){
+.frow{grid-template-columns:1fr}
+.results-grid{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-logo">Lead<span>flow</span></div>
+<div class="nav-tag">Automated lead generation</div>
+</nav>
+
+<div class="hero">
+<div class="hero-eyebrow">Powered by AI · Built for B2B</div>
+<h1>More meetings.<br/><em>Less manual work.</em></h1>
+<p class="hero-sub">Tell us who your ideal client is. LeadFlow finds them, emails them, and books the meeting — automatically.</p>
+<button class="hero-cta" onclick="document.querySelector('.form-section').scrollIntoView({behavior:'smooth'})">
+Generate my leads
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+
+<div class="stats">
+<div class="stat"><div class="stat-val">10s</div><div class="stat-label">To find & book a lead</div></div>
+<div class="stat"><div class="stat-val">3×</div><div class="stat-label">More meetings per week</div></div>
+<div class="stat"><div class="stat-val">0hrs</div><div class="stat-label">Manual outreach needed</div></div>
+</div>
+</div>
+
+<div class="form-section">
+<div class="section-label">Get started</div>
+<div class="section-title">Your ideal client profile</div>
+<div class="form-card">
+<div class="form-body">
+<div class="frow">
+<div class="fg"><label>Your name</label><input id="senderName" placeholder="Alex Johnson" value="Alex Johnson"/></div>
+<div class="fg"><label>Your company</label><input id="senderCo" placeholder="Your Company" value=""/></div>
+</div>
+<div class="frow">
+<div class="fg"><label>Target industry</label><input id="industry" placeholder="e.g. SaaS, Logistics, Recruitment"/></div>
+<div class="fg"><label>Decision maker title</label><input id="jobtitle" placeholder="e.g. Head of Ops, CEO, CTO"/></div>
+</div>
+<div class="frow">
+<div class="fg"><label>Company size</label>
+<select id="size">
+<option value="11-50">11–50 employees</option>
+<option value="51-200" selected>51–200 employees</option>
+<option value="201-500">201–500 employees</option>
+<option value="500+">500+ employees</option>
+</select>
+</div>
+<div class="fg"><label>Meeting length</label>
+<select id="duration">
+<option value="15">15 minutes</option>
+<option value="30" selected>30 minutes</option>
+<option value="45">45 minutes</option>
+<option value="60">1 hour</option>
+</select>
+</div>
+</div>
+<div class="fg"><label>What problem do you solve?</label>
+<textarea id="pain" placeholder="e.g. Teams waste 10+ hours a week on manual reporting. We automate it in real time."></textarea>
+</div>
+</div>
+<div class="form-footer">
+<span class="form-note">Takes about 15 seconds to run</span>
+<button class="run-btn" id="runBtn" onclick="runPipeline()">
+Generate leads
+<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
+</div>
+</div>
+
+<div id="pipeline-section">
+<div class="pipeline-card fadein">
+<div class="pipeline-hdr">
+<div class="pipeline-hdr-title">Running your campaign</div>
+<span id="pipeline-badge" class="badge blue">In progress</span>
+</div>
+<div class="pipeline-body">
+<div class="pstep"><div class="pdot idle" id="d1">1</div><div class="pbody"><div class="ptitle">Finding leads</div><div class="psub" id="s1">Scanning for matching companies...</div><div class="pdetail" id="e1"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d2">2</div><div class="pbody"><div class="ptitle">Qualifying & scoring</div><div class="psub" id="s2">Waiting...</div><div class="pdetail" id="e2"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d3">3</div><div class="pbody"><div class="ptitle">Writing outreach emails</div><div class="psub" id="s3">Waiting...</div><div class="pdetail email" id="e3"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d4">4</div><div class="pbody"><div class="ptitle">Booking meetings in calendar</div><div class="psub" id="s4">Waiting...</div><div class="pdetail" id="e4"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d5">5</div><div class="pbody"><div class="ptitle">Sending confirmation emails</div><div class="psub" id="s5">Waiting...</div><div class="pdetail" id="e5"></div></div></div>
+</div>
+</div>
+</div>
+
+<div id="results-section">
+<div class="success-banner fadein">
+<div class="success-icon">✓</div>
+<div>
+<div class="success-title">Campaign complete</div>
+<div class="success-sub" id="success-sub">LeadFlow found your leads, sent outreach emails, booked meetings, and sent confirmations — automatically.</div>
+</div>
+</div>
+
+<div class="results-grid fadein">
+<div class="rcard"><div class="rcard-label">Leads found</div><div class="rcard-val" id="r-leads">3</div></div>
+<div class="rcard"><div class="rcard-label">Meetings booked</div><div class="rcard-val" id="r-meetings">3</div></div>
+</div>
+
+<div class="leads-card fadein">
+<div class="leads-hdr"><div class="leads-hdr-title">Booked leads</div><span class="badge green">Confirmed</span></div>
+<div id="leads-list"></div>
+</div>
+
+<div class="cal-card fadein" style="margin-bottom:16px">
+<div class="cal-hdr"><div class="leads-hdr-title">Google Calendar</div><span class="badge green" id="cal-badge">Meetings added</span></div>
+<div class="cal-grid" id="cal-grid"></div>
+</div>
+
+<div style="text-align:center;padding:16px 0 32px">
+<button class="run-btn" onclick="resetAll()">Run another campaign</button>
+</div>
+</div>
+
+<script>
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+function setDot(n,s){<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LeadFlow — Automated Lead Generation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--black:#0a0a0a;
+--white:#fafaf8;
+--gray:#f4f3f0;
+--gray2:#e8e6e1;
+--gray3:#b0aca3;
+--accent:#1a1a1a;
+--green:#2d6a4f;
+--green-light:#d8f3dc;
+--green-text:#1b4332;
+--blue:#1e3a5f;
+--blue-light:#e8f0fb;
+--amber:#92400e;
+--amber-light:#fef3c7;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);min-height:100vh;font-weight:400}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray2);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em;color:var(--black)}
+.nav-logo span{font-style:italic;color:var(--gray3)}
+.nav-tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3)}
+
+/* HERO */
+.hero{padding:120px 2rem 80px;max-width:760px;margin:0 auto;text-align:center}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:24px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,6vw,68px);line-height:1.05;letter-spacing:-0.03em;margin-bottom:24px;color:var(--black)}
+.hero h1 em{font-style:italic;color:var(--gray3)}
+.hero-sub{font-size:17px;color:var(--gray3);line-height:1.65;max-width:480px;margin:0 auto 48px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:14px 28px;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.01em}
+.hero-cta:hover{opacity:.85}
+.hero-cta svg{width:14px;height:14px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray2);border:1px solid var(--gray2);border-radius:8px;overflow:hidden;max-width:640px;margin:64px auto 0}
+.stat{background:var(--white);padding:28px 24px;text-align:center}
+.stat-val{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-0.03em;margin-bottom:4px}
+.stat-label{font-size:12px;color:var(--gray3);font-weight:400;letter-spacing:.02em}
+
+/* FORM SECTION */
+.form-section{max-width:700px;margin:80px auto;padding:0 2rem}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gray3);margin-bottom:8px}
+.section-title{font-family:'DM Serif Display',serif;font-size:32px;letter-spacing:-0.02em;margin-bottom:32px;line-height:1.2}
+
+.form-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.form-body{padding:32px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gray3)}
+input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--gray2);border-radius:6px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);transition:border-color .15s;outline:none;-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--black)}
+textarea{resize:vertical;min-height:72px;line-height:1.6}
+.form-footer{border-top:1px solid var(--gray2);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--gray)}
+.run-btn{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:12px 24px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:opacity .2s;letter-spacing:.02em}
+.run-btn:hover{opacity:.82}
+.run-btn:disabled{opacity:.35;cursor:default}
+.form-note{font-size:12px;color:var(--gray3)}
+
+/* PIPELINE */
+#pipeline-section{max-width:700px;margin:0 auto;padding:0 2rem 40px;display:none}
+.pipeline-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.pipeline-hdr{padding:20px 28px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.pipeline-hdr-title{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.02em}
+.pipeline-body{padding:8px 0}
+.pstep{display:flex;gap:16px;align-items:flex-start;padding:18px 28px;border-bottom:1px solid var(--gray2);transition:background .2s}
+.pstep:last-child{border-bottom:none}
+.pstep.active{background:#fafaf8}
+.pdot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;margin-top:1px;transition:all .3s}
+.pdot.idle{background:var(--gray);color:var(--gray3);border:1px solid var(--gray2)}
+.pdot.running{background:var(--blue-light);color:var(--blue);border:1px solid #b8cce8;animation:pulse 1.5s infinite}
+.pdot.done{background:var(--green-light);color:var(--green-text);border:1px solid #95d5b2;font-size:16px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.pbody{flex:1;min-width:0}
+.ptitle{font-size:14px;font-weight:500;margin-bottom:2px;letter-spacing:.01em}
+.psub{font-size:12px;color:var(--gray3);line-height:1.5}
+.pdetail{margin-top:10px;background:var(--gray);border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.75;color:#555;display:none;white-space:pre-wrap;border-left:2px solid var(--gray2)}
+.pdetail.show{display:block}
+.pdetail.email{border-left-color:#378ADD;font-family:monospace;font-size:11.5px}
+
+/* RESULTS */
+#results-section{max-width:700px;margin:0 auto;padding:0 2rem 80px;display:none}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.rcard{background:var(--white);border:1px solid var(--gray2);border-radius:10px;padding:20px}
+.rcard-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray3);margin-bottom:6px}
+.rcard-val{font-family:'DM Serif Display',serif;font-size:30px;letter-spacing:-0.02em}
+
+.leads-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.leads-hdr{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.leads-hdr-title{font-size:14px;font-weight:500;letter-spacing:.01em}
+.badge{font-size:10px;font-weight:500;padding:3px 9px;border-radius:100px;letter-spacing:.04em}
+.badge.green{background:var(--green-light);color:var(--green-text)}
+.badge.blue{background:var(--blue-light);color:var(--blue)}
+.badge.amber{background:var(--amber-light);color:var(--amber)}
+.lead-row{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--gray2)}
+.lead-row:last-child{border-bottom:none}
+.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;letter-spacing:.03em}
+.av.a{background:#e8f0fb;color:#1e3a5f}
+.av.b{background:#d8f3dc;color:#1b4332}
+.av.c{background:#fef3c7;color:#92400e}
+.lead-name{font-size:13px;font-weight:500;margin-bottom:2px}
+.lead-meta{font-size:11px;color:var(--gray3)}
+.lead-meet{font-size:11px;font-weight:500;color:var(--green-text);background:var(--green-light);padding:3px 9px;border-radius:100px;white-space:nowrap}
+
+/* CAL */
+.cal-card{background:var(--white);border:1px solid var(--gray2);border-radius:12px;overflow:hidden}
+.cal-hdr{padding:18px 24px;border-bottom:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:16px}
+.ch{text-align:center;font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--gray3);padding:4px 0 8px}
+.cd{min-height:48px;border-radius:6px;border:1px solid transparent;padding:5px;font-size:11px;color:var(--gray3)}
+.cd.real{border-color:var(--gray2);background:var(--white);color:var(--black)}
+.cd.today{border-color:#1a1a1a}
+.cd.booked{border-color:#95d5b2;background:var(--green-light)}
+.cd.booked .dn{color:var(--green-text);font-weight:500}
+.dn{font-size:11px;margin-bottom:3px}
+.ce{font-size:9px;background:var(--green-text);color:#fff;border-radius:3px;padding:2px 4px;line-height:1.4;margin-top:2px;letter-spacing:.01em}
+
+/* SUCCESS BANNER */
+.success-banner{background:var(--green-light);border:1px solid #95d5b2;border-radius:10px;padding:18px 22px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start}
+.success-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.success-title{font-size:14px;font-weight:500;color:var(--green-text);margin-bottom:3px}
+.success-sub{font-size:12px;color:var(--green);line-height:1.55}
+
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fadein{animation:fadein .4s ease both}
+
+@media(max-width:560px){
+.frow{grid-template-columns:1fr}
+.results-grid{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-logo">Lead<span>flow</span></div>
+<div class="nav-tag">Automated lead generation</div>
+</nav>
+
+<div class="hero">
+<div class="hero-eyebrow">Powered by AI · Built for B2B</div>
+<h1>More meetings.<br/><em>Less manual work.</em></h1>
+<p class="hero-sub">Tell us who your ideal client is. LeadFlow finds them, emails them, and books the meeting — automatically.</p>
+<button class="hero-cta" onclick="document.querySelector('.form-section').scrollIntoView({behavior:'smooth'})">
+Generate my leads
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+
+<div class="stats">
+<div class="stat"><div class="stat-val">10s</div><div class="stat-label">To find & book a lead</div></div>
+<div class="stat"><div class="stat-val">3×</div><div class="stat-label">More meetings per week</div></div>
+<div class="stat"><div class="stat-val">0hrs</div><div class="stat-label">Manual outreach needed</div></div>
+</div>
+</div>
+
+<div class="form-section">
+<div class="section-label">Get started</div>
+<div class="section-title">Your ideal client profile</div>
+<div class="form-card">
+<div class="form-body">
+<div class="frow">
+<div class="fg"><label>Your name</label><input id="senderName" placeholder="Alex Johnson" value="Alex Johnson"/></div>
+<div class="fg"><label>Your company</label><input id="senderCo" placeholder="Your Company" value=""/></div>
+</div>
+<div class="frow">
+<div class="fg"><label>Target industry</label><input id="industry" placeholder="e.g. SaaS, Logistics, Recruitment"/></div>
+<div class="fg"><label>Decision maker title</label><input id="jobtitle" placeholder="e.g. Head of Ops, CEO, CTO"/></div>
+</div>
+<div class="frow">
+<div class="fg"><label>Company size</label>
+<select id="size">
+<option value="11-50">11–50 employees</option>
+<option value="51-200" selected>51–200 employees</option>
+<option value="201-500">201–500 employees</option>
+<option value="500+">500+ employees</option>
+</select>
+</div>
+<div class="fg"><label>Meeting length</label>
+<select id="duration">
+<option value="15">15 minutes</option>
+<option value="30" selected>30 minutes</option>
+<option value="45">45 minutes</option>
+<option value="60">1 hour</option>
+</select>
+</div>
+</div>
+<div class="fg"><label>What problem do you solve?</label>
+<textarea id="pain" placeholder="e.g. Teams waste 10+ hours a week on manual reporting. We automate it in real time."></textarea>
+</div>
+</div>
+<div class="form-footer">
+<span class="form-note">Takes about 15 seconds to run</span>
+<button class="run-btn" id="runBtn" onclick="runPipeline()">
+Generate leads
+<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
+</div>
+</div>
+
+<div id="pipeline-section">
+<div class="pipeline-card fadein">
+<div class="pipeline-hdr">
+<div class="pipeline-hdr-title">Running your campaign</div>
+<span id="pipeline-badge" class="badge blue">In progress</span>
+</div>
+<div class="pipeline-body">
+<div class="pstep"><div class="pdot idle" id="d1">1</div><div class="pbody"><div class="ptitle">Finding leads</div><div class="psub" id="s1">Scanning for matching companies...</div><div class="pdetail" id="e1"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d2">2</div><div class="pbody"><div class="ptitle">Qualifying & scoring</div><div class="psub" id="s2">Waiting...</div><div class="pdetail" id="e2"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d3">3</div><div class="pbody"><div class="ptitle">Writing outreach emails</div><div class="psub" id="s3">Waiting...</div><div class="pdetail email" id="e3"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d4">4</div><div class="pbody"><div class="ptitle">Booking meetings in calendar</div><div class="psub" id="s4">Waiting...</div><div class="pdetail" id="e4"></div></div></div>
+<div class="pstep"><div class="pdot idle" id="d5">5</div><div class="pbody"><div class="ptitle">Sending confirmation emails</div><div class="psub" id="s5">Waiting...</div><div class="pdetail" id="e5"></div></div></div>
+</div>
+</div>
+</div>
+
+<div id="results-section">
+<div class="success-banner fadein">
+<div class="success-icon">✓</div>
+<div>
+<div class="success-title">Campaign complete</div>
+<div class="success-sub" id="success-sub">LeadFlow found your leads, sent outreach emails, booked meetings, and sent confirmations — automatically.</div>
+</div>
+</div>
+
+<div class="results-grid fadein">
+<div class="rcard"><div class="rcard-label">Leads found</div><div class="rcard-val" id="r-leads">3</div></div>
+<div class="rcard"><div class="rcard-label">Meetings booked</div><div class="rcard-val" id="r-meetings">3</div></div>
+</div>
+
+<div class="leads-card fadein">
+<div class="leads-hdr"><div class="leads-hdr-title">Booked leads</div><span class="badge green">Confirmed</span></div>
+<div id="leads-list"></div>
+</div>
+
+<div class="cal-card fadein" style="margin-bottom:16px">
+<div class="cal-hdr"><div class="leads-hdr-title">Google Calendar</div><span class="badge green" id="cal-badge">Meetings added</span></div>
+<div class="cal-grid" id="cal-grid"></div>
+</div>
+
+<div style="text-align:center;padding:16px 0 32px">
+<button class="run-btn" onclick="resetAll()">Run another campaign</button>
+</div>
+</div>
+
+<script>
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+function setDot(n,s){
